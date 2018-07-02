@@ -266,3 +266,7 @@ strong {
   margin: .25em;
   padding: .25em;
 }
+
+.filter-form input[type='text'] {
+  font-size: 1.2em;
+}

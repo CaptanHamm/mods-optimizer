@@ -7,6 +7,8 @@ import CharacterEditView from "../CharacterEditView/CharacterEditView";
 
 import "./OptimizerView.css";
 import Character from "../../domain/Character";
+import BaseStats from "../../domain/BaseStats";
+import OptimizationPlan from "../../domain/OptimizationPlan";
 
 class OptimizerView extends React.Component {
   constructor(props) {
@@ -68,19 +70,22 @@ class OptimizerView extends React.Component {
     let lockedCharacters = [];
 
     savedAvailableCharacters.forEach(character => {
-      const defaultCharacter = characterDefaults.find(c => c.name === character.name);
+      const defaultCharacter = characterDefaults.find(c => c.name === character.name) ||
+        new Character(character.name, new BaseStats(), new OptimizationPlan(), [], false);
       defaultCharacter.optimizationPlan = character.optimizationPlan;
       defaultCharacter.baseStats = character.baseStats;
       availableCharacters.push(defaultCharacter);
     });
     savedSelectedCharacters.forEach(character => {
-      const defaultCharacter = characterDefaults.find(c => c.name === character.name);
+      const defaultCharacter = characterDefaults.find(c => c.name === character.name) ||
+        new Character(character.name, new BaseStats(), new OptimizationPlan(), [], false);
       defaultCharacter.optimizationPlan = character.optimizationPlan;
       defaultCharacter.baseStats = character.baseStats;
       selectedCharacters.push(defaultCharacter);
     });
     savedLockedCharacters.forEach(character => {
-      const defaultCharacter = characterDefaults.find(c => c.name === character.name);
+      const defaultCharacter = characterDefaults.find(c => c.name === character.name) ||
+        new Character(character.name, new BaseStats(), new OptimizationPlan(), [], false);
       defaultCharacter.optimizationPlan = character.optimizationPlan;
       defaultCharacter.baseStats = character.baseStats;
       lockedCharacters.push(defaultCharacter);
