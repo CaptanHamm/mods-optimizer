@@ -1,21 +1,21 @@
 .gold {
-  color: #eeca44;
+  color: #eeca44 !important;
 }
 
 .purple {
-  color: #a35ef9;
+  color: #a35ef9 !important;
 }
 
 .blue {
-  color: #2997f1;
+  color: #2997f1 !important;
 }
 
 .green {
-  color: #8fff3a;
+  color: #8fff3a !important;
 }
 
 .gray {
-  color: #ccfffe;
+  color: #ccfffe !important;
 }
 
 .inset {
@@ -192,6 +192,12 @@ button, .button {
   text-decoration: none;
 }
 
+button[disabled],
+button[disabled]:hover {
+  opacity: .5;
+  cursor: auto;
+}
+
 button.small, .button.small {
   font-size: .7em;
 }
@@ -207,6 +213,16 @@ button.red, .button.red {
 
 button.red:active, .button.red:active {
   border: 1px inset red;
+}
+
+button.blue, .button.blue {
+  background-color: #0b4884;
+  border: 1px outset dodgerblue;
+  color: white !important;
+}
+
+button.blue:active, .button.blue:active {
+  border: 1px inset dodgerblue;
 }
 
 button:hover, button:focus,
@@ -229,14 +245,14 @@ nav button.active {
 }
 
 .modal.reset-modal {
-  width: 50em;
+  width: 40em;
 }
 
 .modal.error-modal {
   border: 1px solid darkred;
   background-color: #ead118;
   width: 30em;
-  height: 12em;
+  min-height: 12em;
   color: black;
   text-shadow: none;
 }
@@ -246,35 +262,64 @@ nav button.active {
   height: 10em;
 }
 
+.modal.error-modal p {
+  word-break: break-word;
+}
+
+.modal.changelog-modal {
+  max-width: 45em;
+}
+
 strong {
   font-weight: bold;
   color: #a35ef9;
 }
 
-.filters {
+.sidebar {
   float: left;
+  max-height: 100%;
+  overflow-y: auto;
+  box-sizing: border-box;
+}
+
+.filters,
+.sidebar-actions {
   background-color: #444;
   padding: 1em;
   border-radius: 0 .5em .5em 0;
   border: 1px solid #888;
   border-left-width: 0;
-  margin: 1em 1em 0 0;
-  max-width: 19em;
-  box-sizing: border-box;
-  max-height: calc(100% - 2em);
-  overflow-y: auto;
+  margin: 1em 1em 1em 0;
+  max-width: 20em;
+}
+
+.sidebar-actions {
+  text-align: center;
+}
+
+.sidebar-actions button {
+  margin-bottom: .5em;
+}
+
+.sidebar-actions button:last-of-type {
+  margin-bottom: 0;
 }
 
 .filter-form {
   text-align: center;
 }
 
-.filter-form label {
+.filter-form label,
+.sidebar-actions h3 {
   display: block;
   border-bottom: 1px solid white;
   font-size: 1.2em;
   margin-top: .5em;
   margin-bottom: .25em;
+}
+
+.sidebar-actions h3 {
+  margin-top: 0;
 }
 
 .filter-form select {
@@ -289,6 +334,19 @@ strong {
   padding: .25em;
 }
 
+.filter-form input[type='text'] {
+  font-size: 1.2em;
+}
+
 input {
-  color: #222222;
+    color: #222222;
+}
+
+li {
+  text-align: left;
+  margin-bottom: .5em;
+}
+
+a {
+  cursor: pointer;
 }
